@@ -1,3 +1,4 @@
+#edited 
 from pandas import DataFrame
 import torch
 import os
@@ -17,10 +18,10 @@ class FileSetter(object):
 
     @staticmethod
     def predictions_folder():
-        return ''  # TODO set path to where predictions should be written
+        return 'outputs/predictions'  # set path to where predictions should be written
 
     @staticmethod
-    def profile_db():
+    def profile_db()
         # TODO set path to pre-computed big_80 database
         # can be downloaded from ftp://rostlab.org/bindEmbed21/profile_db.tar.gz
         return ''
@@ -295,3 +296,5 @@ class GeneralInformation(object):
         target_i = target[:, indices].squeeze()
 
         return pred_i, target_i
+
+
