@@ -1,4 +1,3 @@
-#edited 
 from pandas import DataFrame
 import torch
 import os
@@ -12,16 +11,18 @@ class FileSetter(object):
 
     @staticmethod
     def embeddings_input():
-        return ''
-        # TODO set path to embeddings, this should be a .h5-file generated containing per-residue embeddings for all
+        return 'bio_embeddings-develop/examples/use_case_one/simple/bert_embeddings/embeddings_file.h5'
+        #  set path to embeddings, this should be a .h5-file generated containing per-residue embeddings for all
         #  proteins with key: UniProt-ID, value: embeddings
+        
+
 
     @staticmethod
     def predictions_folder():
-        return 'outputs/predictions'  # set path to where predictions should be written
+        return 'outputs/predictions'  #  set path to where predictions should be written
 
     @staticmethod
-    def profile_db()
+    def profile_db():
         # TODO set path to pre-computed big_80 database
         # can be downloaded from ftp://rostlab.org/bindEmbed21/profile_db.tar.gz
         return ''
@@ -30,7 +31,7 @@ class FileSetter(object):
     def lookup_fasta():
         # TODO set path to FASTA file of lookup set
         # can be downloaded from ftp://rostlab.org/bindEmbed21/lookup.fasta
-        return ''
+        return 'bio_embeddings-develop/examples/use_case_one/fasta.fa'
 
     @staticmethod
     def lookup_db():
@@ -40,18 +41,18 @@ class FileSetter(object):
 
     @staticmethod
     def mmseqs_output():
-        # TODO set path to where MMseqs2 output folder should be written.
+        # set path to where MMseqs2 output folder should be written.
         # tmp files will be stored in this folder in a sub-directory tmp/
         # predictions will be stored in this folder in a sub-directory hbi_predictions/
-        return ''
+        return 'outputs/mmseqs'
 
     @staticmethod
     def query_set():
-        return ''  # TODO set path to FASTA set of query sequences to generate predictions for
+        return 'bio_embeddings-develop/examples/use_case_one/fasta.fa'  # TODO set path to FASTA set of query sequences to generate predictions for
 
     @staticmethod
     def mmseqs_path():
-        return ''  # TODO set path to MMseqs2 installation
+        return '/Users/adel/miniconda3/pkgs/mmseqs2-13.45111-pl5321hdb1ff06_2/bin/mmseqs'  # set path to MMseqs2 installation
 
     @staticmethod
     def split_ids_in():
@@ -59,7 +60,7 @@ class FileSetter(object):
 
     @staticmethod
     def test_ids_in():
-        return 'data/development_set/uniprot_test.txt'  # test ids used during development; available on GitHub
+        return 'data/development_set/uniprot_test.txt'  # test ids uused during development; available on GitHub
 
     @staticmethod
     def fasta_file():
@@ -296,5 +297,3 @@ class GeneralInformation(object):
         target_i = target[:, indices].squeeze()
 
         return pred_i, target_i
-
-

@@ -1,0 +1,10 @@
+mapping_file: simple/mapping_file.csv
+prefix: simple
+protocol: prottrans_bert_bfd
+reduce: true
+remapped_sequences_file: simple/remapped_sequences_file.fasta
+sequences_file: simple/sequences_file.fasta
+simple_remapping: false
+stage_name: bert_embeddings
+start_time: '2022-07-14 16:44:43.805006+02:00'
+type: embed

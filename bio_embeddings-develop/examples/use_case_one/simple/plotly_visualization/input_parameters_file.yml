@@ -1,0 +1,27 @@
+annotation_file: annotation_file.csv
+depends_on: tsne_projections
+discard_per_amino_acid_embeddings: false
+elapsed_time: 0:00:02.651969
+embeddings_file: simple/bert_embeddings/embeddings_file.h5
+embeddings_transformer_function: null
+end_time: '2022-07-14 16:51:41.997182+02:00'
+mapping_file: simple/mapping_file.csv
+max_amino_acids: 6024
+metric: cosine
+n_components: 3
+n_iter: 15000
+n_jobs: -1
+perplexity: 6
+prefix: simple
+projected_reduced_embeddings_file: simple/tsne_projections/projected_reduced_embeddings_file.h5
+protocol: plotly
+random_state: 420
+reduce: true
+reduced_embeddings_file: simple/bert_embeddings/reduced_embeddings_file.h5
+remapped_sequences_file: simple/remapped_sequences_file.fasta
+sequences_file: simple/sequences_file.fasta
+simple_remapping: false
+stage_name: plotly_visualization
+start_time: '2022-07-14 16:51:42.003584+02:00'
+type: visualize
+verbose: 1

@@ -1,0 +1,84 @@
+bert_embeddings:
+  sequences_file: simple/sequences_file.fasta
+  prefix: simple
+  simple_remapping: false
+  mapping_file: simple/mapping_file.csv
+  remapped_sequences_file: simple/remapped_sequences_file.fasta
+  type: embed
+  protocol: prottrans_bert_bfd
+  reduce: true
+  stage_name: bert_embeddings
+  start_time: '2022-07-14 16:44:43.805006+02:00'
+  max_amino_acids: 6024
+  embeddings_transformer_function:
+  discard_per_amino_acid_embeddings: false
+  embeddings_file: simple/bert_embeddings/embeddings_file.h5
+  reduced_embeddings_file: simple/bert_embeddings/reduced_embeddings_file.h5
+  end_time: '2022-07-14 16:51:39.307398+02:00'
+  elapsed_time: 0:06:55.502392
+tsne_projections:
+  sequences_file: simple/sequences_file.fasta
+  prefix: simple
+  simple_remapping: false
+  mapping_file: simple/mapping_file.csv
+  remapped_sequences_file: simple/remapped_sequences_file.fasta
+  type: project
+  protocol: tsne
+  reduce: true
+  stage_name: tsne_projections
+  start_time: '2022-07-14 16:51:39.345213+02:00'
+  max_amino_acids: 6024
+  embeddings_transformer_function:
+  discard_per_amino_acid_embeddings: false
+  embeddings_file: simple/bert_embeddings/embeddings_file.h5
+  reduced_embeddings_file: simple/bert_embeddings/reduced_embeddings_file.h5
+  end_time: '2022-07-14 16:51:41.997182+02:00'
+  elapsed_time: 0:00:02.651969
+  depends_on: bert_embeddings
+  perplexity: 6
+  n_jobs: -1
+  n_iter: 15000
+  metric: cosine
+  n_components: 3
+  random_state: 420
+  verbose: 1
+  projected_reduced_embeddings_file: simple/tsne_projections/projected_reduced_embeddings_file.h5
+plotly_visualization:
+  sequences_file: simple/sequences_file.fasta
+  prefix: simple
+  simple_remapping: false
+  mapping_file: simple/mapping_file.csv
+  remapped_sequences_file: simple/remapped_sequences_file.fasta
+  type: visualize
+  protocol: plotly
+  reduce: true
+  stage_name: plotly_visualization
+  start_time: '2022-07-14 16:51:42.003584+02:00'
+  max_amino_acids: 6024
+  embeddings_transformer_function:
+  discard_per_amino_acid_embeddings: false
+  embeddings_file: simple/bert_embeddings/embeddings_file.h5
+  reduced_embeddings_file: simple/bert_embeddings/reduced_embeddings_file.h5
+  end_time: '2022-07-14 16:51:43.828882+02:00'
+  elapsed_time: 0:00:01.825298
+  depends_on: tsne_projections
+  perplexity: 6
+  n_jobs: -1
+  n_iter: 15000
+  metric: cosine
+  n_components: 3
+  random_state: 420
+  verbose: 1
+  projected_reduced_embeddings_file: simple/tsne_projections/projected_reduced_embeddings_file.h5
+  annotation_file: annotation_file.csv
+  merge_via_index: false
+  display_unknown: true
+  merged_annotation_file: simple/plotly_visualization/merged_annotation_file.csv
+  plot_file: simple/plotly_visualization/plot_file.html
+global:
+  sequences_file: simple/sequences_file.fasta
+  prefix: simple
+  simple_remapping: false
+  mapping_file: simple/mapping_file.csv
+  remapped_sequences_file: simple/remapped_sequences_file.fasta
+  version: 0.2.2
